@@ -4,9 +4,10 @@
         <h6 class="card-subtitle mb-2" [ngStyle]="{'color': couleur}">{{ subtitle }}</h6>
         <p class="card-text">{{ date }}</p>
         <p class="card-text">{{ location }}</p>
+        <p class="card-text">{{ participant }} Participants</p>
         <div class="d-flex justify-content-between mt-3">
             <a class="btn btn-danger btn-sm">Détails</a>
-            <a class="btn btn-success btn-sm">Inscription</a>
+            <a class="btn btn-success btn-sm" (click)="inscrire()">Inscription</a>
             <a class="btn btn-info btn-sm">Partager</a>
         </div>
     </div>

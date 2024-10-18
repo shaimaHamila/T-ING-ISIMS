@@ -3,8 +3,18 @@
     <h1 class="text-white">List des sessions de formation</h1>
     <i class="text-white font-italic">Suivre les session que je peux participer</i>
   </div>
-  <session-item [name]="firstSession.name" [subtitle]="firstSession.subtitle" [date]="firstSession.date"
-    [location]="firstSession.location">
-  </session-item>
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <session-item [name]="session.name" [subtitle]="session.subtitle" [date]="session.date"
+        [location]="session.location" [participant]="session.participant"
+        (participantChange)="updateTotalParticipants($event)">
+      </session-item>
+    </div>
+  </div>
+  <div>
+    <h2 class="text-white">
+      Total des participants: {{totalParticipants}}
+    </h2>
+  </div>
   <router-outlet></router-outlet>
 </div>
