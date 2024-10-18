@@ -3,6 +3,8 @@
     <h1 class="text-white">List des sessions de formation</h1>
     <i class="text-white font-italic">Suivre les session que je peux participer</i>
   </div>
-  <app-session-item></app-session-item>
+  <session-item [name]="firstSession.name" [subtitle]="firstSession.subtitle" [date]="firstSession.date"
+    [location]="firstSession.location">
+  </session-item>
   <router-outlet></router-outlet>
 </div>
