@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
+import { Session } from './session-item/session-item.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   sessionName: string = 'Formation web';
@@ -24,8 +24,9 @@ export class AppComponent {
       location: 'Sousse',
     },
   ];
-  sessions = [
+  sessions: Session[] = [
     {
+      id: 1,
       name: 'Formation Web',
       subtitle: 'MEAN Stack',
       date: '11/06/2023 au 15/06/2023',

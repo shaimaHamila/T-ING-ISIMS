@@ -1,32 +1,28 @@
-<div class="container">
-  <div class="my-4">
-    <h1 class="text-white">List des sessions de formation</h1>
-    <i class="text-white font-italic">Suivre les sessions auxquelles je peux participer</i>
+<div class="container my-5">
+  <div class="mb-4 text-center">
+    <h1 class="mb-3">Liste des sessions de formation</h1>
+    <h5 class="text-muted">
+      Total des participants: {{ totalParticipants }}
+    </h5>
+    <p class="font-italic">Suivre les sessions auxquelles je peux participer</p>
   </div>
-  <div *ngIf="oldSessions.length < 0" class="row">
-    <p class="text-white">Aucune session n'est disponible.</p>
-  </div>
-  <div>
 
-    <ul *ngFor="let oldSession of oldSessions" class="text-white">
-      <li>{{oldSession.name}} - {{oldSession.date}} - {{oldSession.location}} </li>
-    </ul>
+  <div *ngIf="oldSessions.length === 0" class="alert alert-warning">
+    Aucune session n'est disponible.
   </div>
+
+  <ul *ngIf="oldSessions.length > 0" class="list-group mb-5">
+    <li *ngFor="let oldSession of oldSessions" class="list-group-item">
+      {{ oldSession.name }} - {{ oldSession.date }} - {{ oldSession.location }}
+    </li>
+  </ul>
 
   <div class="row">
-    <div class="col-md-4 mb-4" *ngFor="let session of sessions">
-      <session-item [name]="session.name" [subtitle]="session.subtitle" [date]="session.date"
-        [location]="session.location" [participant]="session.participant"
-        (participantChange)="updateTotalParticipants($event)"
-        (modeChange)="updateMode(session, $event)"></session-item>>
-
+    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let session of sessions">
+      <session-item [session]="session" (participantChange)="updateTotalParticipants($event)"
+        (modeChange)="updateMode(session, $event)">
+      </session-item>
     </div>
-  </div>
-
-  <div>
-    <h2 class="text-white">
-      Total des participants: {{ totalParticipants }}
-    </h2>
   </div>
 
   <router-outlet></router-outlet>
