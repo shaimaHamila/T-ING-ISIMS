@@ -1,14 +1,42 @@
-<div class="card text-light" style="width: 18rem; background-color: #29394b;">
+<div class="card text-light" style="max-width: 20rem; margin: 1rem; background-color: #29394b; border: none;">
     <div class="card-body">
-        <h2 class="card-title text-primary" [id]="name">{{name}}</h2>
-        <h6 class="card-subtitle mb-2" [ngStyle]="{'color': couleur}">{{ subtitle }}</h6>
-        <p class="card-text">{{ date }}</p>
-        <p class="card-text">{{ location }}</p>
-        <p class="card-text">{{ participant }} Participants</p>
-        <div class="d-flex justify-content-between mt-3">
-            <a class="btn btn-danger btn-sm">Détails</a>
-            <a class="btn btn-success btn-sm" (click)="inscrire()">Inscription</a>
-            <a class="btn btn-info btn-sm">Partager</a>
+        <h2 class="card-title text-primary" [id]="name">{{ name }}</h2>
+        <h6 class="card-subtitle mb-3" [ngStyle]="{ 'color': couleur }">{{ subtitle }}</h6>
+
+        <div class="mb-2 d-flex justify-content-between">
+            <strong>Date:</strong>
+            <span>{{ date }}</span>
+        </div>
+        <div class="mb-2 d-flex justify-content-between">
+            <strong>Location:</strong>
+            <span>{{ location }}</span>
+        </div>
+        <div class="mb-2 d-flex justify-content-between">
+            <strong>Participants:</strong>
+            <span><strong>{{ participant }}</strong></span>
+        </div>
+
+        <div class="mt-3">
+            <label class=" mb-2 text-white">Mode de formation:</label>
+            <div class="mb-2 d-flex gap-4">
+                <div class="form-check">
+                    <input type="radio" id="inPerson" name="mode" [(ngModel)]="selectedMode" value="onsite"
+                        class="form-check-input">
+                    <label for="inPerson" class="form-check-label text-white">En présentiel</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="online" name="mode" [(ngModel)]="selectedMode" value="online"
+                        class="form-check-input">
+                    <label for="online" class="form-check-label text-white">En ligne</label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+            <a class="btn btn-danger btn-sm btn-hover">Détails</a>
+            <a class="btn btn-success btn-sm btn-hover" (click)="inscrire()">Inscription</a>
+            <a class="btn btn-info btn-sm btn-hover">Partager</a>
         </div>
     </div>
 </div>
